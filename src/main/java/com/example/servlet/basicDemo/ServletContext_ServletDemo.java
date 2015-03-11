@@ -18,9 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = { "/ServletContextServletDemo" })
 public class ServletContext_ServletDemo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private ServletConfig servletConfig;
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		servletConfig=config;
 		System.out.println(config.getServletName() + " : is Initilize...");
 	}
 
@@ -32,7 +33,7 @@ public class ServletContext_ServletDemo extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		ServletContext servletContext = getServletContext();
+		ServletContext servletContext = servletConfig.getServletContext();
 		Enumeration<String> e = servletContext.getInitParameterNames();
 		while (e.hasMoreElements()) {
 			String str = "";

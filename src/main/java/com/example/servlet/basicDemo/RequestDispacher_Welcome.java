@@ -24,9 +24,7 @@ public class RequestDispacher_Welcome extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
 		String n = request.getParameter("userName");
 		out.print("Welcome " + n);
 	}
-
 }

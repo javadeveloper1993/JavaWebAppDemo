@@ -24,7 +24,7 @@ public class SendRedirect_Welcome_ServletDemo extends HttpServlet {
 		response.setContentType("text/html");
 		String password = request.getParameter("userPass");
 		if (password.equals("123")) {
-			response.sendRedirect(request.getContextPath() + "/MyFirstServlet");
+			response.sendRedirect(request.getContextPath() + "/MyFirstServletDemo");
 		} else {
 			response.sendRedirect(request.getContextPath()
 					+ "/page/error/ErrorPage.jsp");

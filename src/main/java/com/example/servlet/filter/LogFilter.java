@@ -38,7 +38,7 @@ public class LogFilter implements Filter {
 		 chain.doFilter(request, response);
 
 		System.out.println("Initilize Parameter Name : "
-				+ filterConfig.getInitParameter("Name"));
+				+ filterConfig.getInitParameter("test-param"));
 
 		System.out.println(filterConfig.getFilterName()
 				+ " : Executed Sucessfully...!!!");

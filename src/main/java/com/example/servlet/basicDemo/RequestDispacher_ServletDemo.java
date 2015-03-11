@@ -26,7 +26,7 @@ public class RequestDispacher_ServletDemo extends HttpServlet {
 		response.setContentType("text/html");
 		String password = request.getParameter("userPass");
 		if (password.equals("123")) {
-			RequestDispatcher rd = request.getRequestDispatcher("RqdWelcome");
+			RequestDispatcher rd = request.getRequestDispatcher("RqdWelcomeServletDemo");
 			rd.forward(request, response);
 		} else {
 			RequestDispatcher rd = request

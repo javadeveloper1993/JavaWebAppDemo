@@ -33,7 +33,7 @@ public class ServletContextListnerDemo implements ServletContextListener {
 			servletContext.setAttribute("DatabaseNames",
 					client.getDatabaseNames());
 			System.out.println("MongoDb Conection Created Sucessfully...!!!");
-			
+			System.out.println();
 		} catch (Exception e) {
 			System.out.println("In Exception Mode");
 			System.out.println(e.getMessage());
@@ -50,5 +50,6 @@ public class ServletContextListnerDemo implements ServletContextListener {
 		servletContext.removeAttribute("host");
 		servletContext.removeAttribute("port");
 		servletContext.removeAttribute("DatabaseNames");
+		System.out.println();
 	}
 }

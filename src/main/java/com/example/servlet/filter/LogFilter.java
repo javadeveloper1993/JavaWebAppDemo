@@ -17,6 +17,7 @@ import javax.servlet.ServletResponse;
  * @author Maulik
  *
  */
+//@WebFilter(urlPatterns="/*")
 public class LogFilter implements Filter {
 	FilterConfig filterConfig;
 
@@ -35,7 +36,7 @@ public class LogFilter implements Filter {
 
 		// Pass request back down the filter chain
 
-		 chain.doFilter(request, response);
+		chain.doFilter(request, response);
 
 		System.out.println("Initilize Parameter Name : "
 				+ filterConfig.getInitParameter("test-param"));

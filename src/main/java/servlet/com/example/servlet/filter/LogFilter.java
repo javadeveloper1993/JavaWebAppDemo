@@ -17,17 +17,15 @@ import javax.servlet.ServletResponse;
  * @author Maulik
  *
  */
-//@WebFilter(urlPatterns="/*")
+// @WebFilter(urlPatterns="/*")
 public class LogFilter implements Filter {
 	FilterConfig filterConfig;
 
-	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		this.filterConfig = filterConfig;
 		System.out.println(getClass() + " is Initiliaze...!!!");
 	}
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		String ipAddress = request.getRemoteAddr();
@@ -35,7 +33,6 @@ public class LogFilter implements Filter {
 				+ new Date().toString());
 
 		// Pass request back down the filter chain
-
 		chain.doFilter(request, response);
 
 		System.out.println("Initilize Parameter Name : "
@@ -50,7 +47,6 @@ public class LogFilter implements Filter {
 		// out.close();
 	}
 
-	@Override
 	public void destroy() {
 		System.out.println(getClass() + " is Destroyed...!!!");
 	}

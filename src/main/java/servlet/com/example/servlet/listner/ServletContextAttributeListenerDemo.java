@@ -12,7 +12,6 @@ import javax.servlet.annotation.WebListener;
 public class ServletContextAttributeListenerDemo implements
 		ServletContextAttributeListener {
 
-	@Override
 	public void attributeAdded(
 			ServletContextAttributeEvent servletContextAttributeEvent) {
 		System.out
@@ -24,7 +23,6 @@ public class ServletContextAttributeListenerDemo implements
 		System.out.println();
 	}
 
-	@Override
 	public void attributeRemoved(
 			ServletContextAttributeEvent servletContextAttributeEvent) {
 		System.out
@@ -36,7 +34,6 @@ public class ServletContextAttributeListenerDemo implements
 		System.out.println();
 	}
 
-	@Override
 	public void attributeReplaced(
 			ServletContextAttributeEvent servletContextAttributeEvent) {
 		System.out

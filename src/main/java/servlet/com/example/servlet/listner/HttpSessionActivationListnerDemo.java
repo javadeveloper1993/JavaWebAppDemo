@@ -12,14 +12,11 @@ import javax.servlet.http.HttpSessionEvent;
 public class HttpSessionActivationListnerDemo implements
 		HttpSessionActivationListener {
 
-	@Override
-	public void sessionWillPassivate(HttpSessionEvent event) {
+	public void sessionWillPassivate(HttpSessionEvent se) {
 		System.out.println("session is about to be passivated");
 	}
 
-	@Override
-	public void sessionDidActivate(HttpSessionEvent event) {
+	public void sessionDidActivate(HttpSessionEvent se) {
 		System.out.println("session has just been activated");
 	}
-
 }

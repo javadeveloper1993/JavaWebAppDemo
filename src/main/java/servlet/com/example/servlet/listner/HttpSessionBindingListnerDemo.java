@@ -12,12 +12,11 @@ import javax.servlet.http.HttpSessionBindingListener;
 public class HttpSessionBindingListnerDemo implements
 		HttpSessionBindingListener {
 
-	@Override
 	public void valueBound(HttpSessionBindingEvent event) {
 		System.out.println("The value bound is " + event.getName());
+
 	}
 
-	@Override
 	public void valueUnbound(HttpSessionBindingEvent event) {
 		System.out.println("The value unbound is " + event.getName());
 	}

@@ -16,7 +16,6 @@ public class ServletContextListnerDemo implements ServletContextListener {
 
 	private MongoClient client;
 
-	@Override
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
 		System.out.println("Servlet Context Initilize With Path :"
@@ -38,9 +37,9 @@ public class ServletContextListnerDemo implements ServletContextListener {
 			System.out.println("In Exception Mode");
 			System.out.println(e.getMessage());
 		}
+
 	}
 
-	@Override
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
 		System.out.println("Servlet Context Destroyed With Path :"
@@ -52,4 +51,5 @@ public class ServletContextListnerDemo implements ServletContextListener {
 		servletContext.removeAttribute("DatabaseNames");
 		System.out.println();
 	}
+
 }

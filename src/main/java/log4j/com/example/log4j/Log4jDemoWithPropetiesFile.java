@@ -44,5 +44,6 @@ public class Log4jDemoWithPropetiesFile {
 
 	private void divide() {
 		int i = 10 / 0;
+		logger.error(i);
 	}
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/java/servlet"/>
+	<classpathentry kind="src" path="src/main/java/rest-webservice"/>
 	<classpathentry kind="src" path="src/main/java/log4j"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>

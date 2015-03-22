@@ -7,6 +7,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java/servlet"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java/log4j"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java/rest-webservice"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java/model"/>
         <property name="java-output-path" value="/JavaWebAppDemo/target/classes"/>
         <property name="context-root" value="JavaWebAppDemo"/>
     </wb-module>

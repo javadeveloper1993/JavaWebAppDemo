@@ -39,7 +39,7 @@ public class CookieDeleteServletDemo extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print("<b>Cookie Deleted SucessFully....!!!</b><br>");
-		out.print("<form action='index.html'>");
+		out.print("<form action='CookieServletDemo.html'>");
 		out.print("<input type='submit' value='Click To Add Cookie'>");
 		out.print("</form>");
 		out.close();

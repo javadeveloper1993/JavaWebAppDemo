@@ -4,7 +4,7 @@
 	<groupId>com.example</groupId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>ServletDemo Maven Webapp</name>
+	<name>JavaWebAppDemo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<!-- Java Servlet -->

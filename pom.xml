@@ -6,6 +6,35 @@
 	<version>1.0.0</version>
 	<name>JavaWebAppDemo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<artifactId>JavaWebAppDemo</artifactId>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<finalName>JavaWebAppDemo</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:9191/manager/text</url>
+					<server>TomcatServer</server>
+					<port>9191</port>
+					<path>/JavaWebAppDemo</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<!-- Java Servlet -->
 		<dependency>
@@ -92,30 +121,6 @@
 			<artifactId>jersey-spring</artifactId>
 			<version>1.0</version>
 		</dependency>
+
 	</dependencies>
-	<build>
-		<finalName>JavaWebAppDemo</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<server>localhost</server>
-					<port>8181</port>
-					<path>/JavaWebAppDemo</path>
-					<url>http://localhost:8181/manager/text</url> 
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<artifactId>JavaWebAppDemo</artifactId>
 </project>

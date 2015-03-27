@@ -7,84 +7,85 @@
 	<name>ServletDemo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-	  <!-- Java Servlet -->
+		<!-- Java Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
+			<scope>provided</scope>
 		</dependency>
-		
-	  <!-- Junit-->
+
+		<!-- Junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Java Mongo Java Driver -->
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>2.12.3</version>
 		</dependency>
-		
+
 		<!-- Java Jakson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.5.1</version>
 		</dependency>
-		
+
 		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-		
+
 		<!-- Jersey Client -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+
 		<!-- Jersey Server -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+
 		<!-- Jersey MultiPart -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-multipart</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+
 		<!-- Jersey Core -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-core</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+
 		<!-- Jersey JSON -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+
 		<!-- Jersey Servlet -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-servlet</artifactId>
 			<version>1.19</version>
 		</dependency>
-		
+
 		<!-- Jersey Spring -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
@@ -93,7 +94,28 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>ServletDemo</finalName>
+		<finalName>JavaWebAppDemo</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<server>localhost</server>
+					<port>8181</port>
+					<path>/JavaWebAppDemo</path>
+					<url>http://localhost:8181/manager/text</url> 
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 	<artifactId>JavaWebAppDemo</artifactId>
 </project>

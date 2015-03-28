@@ -30,7 +30,7 @@
 				<configuration>
 					<url>http://localhost:9191/manager/text</url>
 					<server>localhost</server>
-					<port>9191</port>
+					<port>8181</port>
 					<path>/JavaWebAppDemo</path>
 				</configuration>
 			</plugin>
@@ -123,6 +123,5 @@
 			<artifactId>jersey-spring</artifactId>
 			<version>1.0</version>
 		</dependency>
-
 	</dependencies>
 </project>

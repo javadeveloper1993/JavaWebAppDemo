@@ -13,32 +13,35 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Maulik
- *
+ * 
  */
 // @WebFilter(urlPatterns="/*")
 public class LogFilter implements Filter {
+	private static final Logger logger = Logger.getLogger(LogFilter.class);
 	FilterConfig filterConfig;
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		this.filterConfig = filterConfig;
-		System.out.println(getClass() + " is Initiliaze...!!!");
+		logger.info(getClass() + " is Initiliaze...!!!");
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		String ipAddress = request.getRemoteAddr();
-		System.out.println("IP " + ipAddress + ", Time "
+		logger.info("IP " + ipAddress + ", Time "
 				+ new Date().toString());
 
 		// Pass request back down the filter chain
 		chain.doFilter(request, response);
 
-		System.out.println("Initilize Parameter Name : "
+		logger.info("Initilize Parameter Name : "
 				+ filterConfig.getInitParameter("test-param"));
 
-		System.out.println(filterConfig.getFilterName()
+		logger.info(filterConfig.getFilterName()
 				+ " : Executed Sucessfully...!!!");
 
 		// PrintWriter out = response.getWriter();
@@ -48,7 +51,7 @@ public class LogFilter implements Filter {
 	}
 
 	public void destroy() {
-		System.out.println(getClass() + " is Destroyed...!!!");
+		logger.info(getClass() + " is Destroyed...!!!");
 	}
 
 }

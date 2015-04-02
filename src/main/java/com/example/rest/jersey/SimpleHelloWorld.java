@@ -7,7 +7,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * @author Maulik
- *
+ * 
  */
 @Path("/jerseyHelloWorld")
 public class SimpleHelloWorld {

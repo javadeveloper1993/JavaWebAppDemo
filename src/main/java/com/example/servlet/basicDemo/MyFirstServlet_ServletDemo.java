@@ -11,11 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class MyFirstServlet
  */
 @WebServlet(urlPatterns = { "/MyFirstServletDemo" })
 public class MyFirstServlet_ServletDemo extends HttpServlet {
+	private static final Logger logger = Logger
+			.getLogger(MyFirstServlet_ServletDemo.class);
 	private static final long serialVersionUID = 1L;
 	private ServletConfig servletConfig;
 
@@ -31,7 +35,7 @@ public class MyFirstServlet_ServletDemo extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		servletConfig = config;
-		System.out.println(getServletConfig().getServletName()
+		logger.info(getServletConfig().getServletName()
 				+ " is Initiated");
 	}
 
@@ -39,7 +43,7 @@ public class MyFirstServlet_ServletDemo extends HttpServlet {
 	 * @see Servlet#destroy()
 	 */
 	public void destroy() {
-		System.out.println(getServletConfig().getServletName() + " is Destroy");
+		logger.info(getServletConfig().getServletName() + " is Destroy");
 	}
 
 	/**

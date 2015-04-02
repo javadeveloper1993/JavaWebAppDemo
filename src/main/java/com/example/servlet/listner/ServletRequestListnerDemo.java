@@ -5,31 +5,34 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Maulik
- *
+ * 
  */
 @WebListener
 public class ServletRequestListnerDemo implements ServletRequestListener {
+	private static final Logger logger = Logger
+			.getLogger(ServletRequestListnerDemo.class);
 
 	public void requestDestroyed(ServletRequestEvent servletRequestEvent) {
-		System.out
-				.println(">>>>>>>>>>     Servlet Request Listner Demo : Destroye   >>>>>>>>>>>>>>");
-		System.out.println();
+		logger.info(">>>>>>>>>>     Servlet Request Listner Demo : Destroye   >>>>>>>>>>>>>>");
+		logger.info("");
 		ServletRequest servletRequest = servletRequestEvent.getServletRequest();
-		System.out.println("ServletRequest destroyed. Remote IP="
+		logger.info("ServletRequest destroyed. Remote IP="
 				+ servletRequest.getRemoteAddr());
-		System.out.println();
+		logger.info("");
 	}
 
 	public void requestInitialized(ServletRequestEvent servletRequestEvent) {
 		System.out
 				.println(">>>>>>>>>>     Servlet Request Listner Demo  : Initialize  >>>>>>>>>>>>>>");
-		System.out.println();
+		logger.info("");
 		ServletRequest servletRequest = servletRequestEvent.getServletRequest();
-		System.out.println("ServletRequest initialized. Remote IP="
+		logger.info("ServletRequest initialized. Remote IP="
 				+ servletRequest.getRemoteAddr());
-		System.out.println();
+		logger.info("");
 	}
 
 }

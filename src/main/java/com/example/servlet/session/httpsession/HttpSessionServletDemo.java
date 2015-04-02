@@ -11,11 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class HttpSessionServletDemo
  */
 @WebServlet("/HttpSessionServletDemo")
 public class HttpSessionServletDemo extends HttpServlet {
+	private static final Logger logger = Logger
+			.getLogger(HttpSessionServletDemo.class);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -30,8 +34,8 @@ public class HttpSessionServletDemo extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		out.print("Welcome " + firstName + " : " + lastName);
 		HttpSession session = request.getSession(true);
-		System.out.println("Session Id :: " + session.getId());
-		System.out.println("Session Last Accessed Time :: "
+		logger.info("Session Id :: " + session.getId());
+		logger.info("Session Last Accessed Time :: "
 				+ new Date(session.getLastAccessedTime()));
 		session.setAttribute("firstName", firstName);
 		session.setAttribute("lastName", lastName);

@@ -1,5 +1,7 @@
 package com.example.rest.jersey;
 
+import org.apache.log4j.Logger;
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -9,6 +11,8 @@ import com.sun.jersey.api.client.WebResource;
  * 
  */
 public class JerseyClientPostDemo {
+	private static final Logger logger = Logger
+			.getLogger(JerseyClientPostDemo.class);
 
 	public static void main(String[] args) {
 		try {
@@ -25,9 +29,9 @@ public class JerseyClientPostDemo {
 						+ response.getStatus());
 			}
 
-			System.out.println("Output from Server .... \n");
+			logger.info("Output from Server .... \n");
 			String output = response.getEntity(String.class);
-			System.out.println(output);
+			logger.info(output);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

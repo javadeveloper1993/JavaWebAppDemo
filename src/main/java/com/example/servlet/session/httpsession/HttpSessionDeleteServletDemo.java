@@ -10,11 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class HttpSessionDeleteServletDemo
  */
 @WebServlet("/HttpSessionDeleteServletDemo")
 public class HttpSessionDeleteServletDemo extends HttpServlet {
+	private static final Logger logger = Logger
+			.getLogger(HttpSessionDeleteServletDemo.class);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -35,7 +39,7 @@ public class HttpSessionDeleteServletDemo extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		session.invalidate();
 		out.print("Session Deleted Sucessfully...!!!");
-		System.out.println("Session Id :: " + session.getId());
+		logger.info("Session Id :: " + session.getId());
 		out.print("<br><a href='index.html'>Create Session</a>");
 		out.close();
 	}

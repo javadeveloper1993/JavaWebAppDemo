@@ -4,12 +4,16 @@ import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Maulik
- *
+ * 
  */
 @WebListener
 public class HttpSessionListnerDemo implements HttpSessionListener {
+	private static final Logger logger = Logger
+			.getLogger(HttpSessionListnerDemo.class);
 	private static int totalActiveSessions;
 
 	public static int getTotalActiveSession() {
@@ -17,24 +21,21 @@ public class HttpSessionListnerDemo implements HttpSessionListener {
 	}
 
 	public void sessionCreated(HttpSessionEvent se) {
-		System.out
-				.println(">>>>>>>>>>     HttpSession Listner Demo : Create   >>>>>>>>>>>>>>");
-		System.out.println();
+		logger.info(">>>>>>>>>>     HttpSession Listner Demo : Create   >>>>>>>>>>>>>>");
+		logger.info("");
 		totalActiveSessions++;
-		System.out.println("\tSessionCreated - add one session into counter : "
+		logger.info("\tSessionCreated - add one session into counter : "
 				+ totalActiveSessions);
-		System.out.println();
+		logger.info("");
 	}
 
 	public void sessionDestroyed(HttpSessionEvent se) {
-		System.out
-				.println(">>>>>>>>>>     HttpSession Listner Demo : Destroyed  >>>>>>>>>>>>>>");
-		System.out.println();
+		logger.info(">>>>>>>>>>     HttpSession Listner Demo : Destroyed  >>>>>>>>>>>>>>");
+		logger.info("");
 		totalActiveSessions--;
-		System.out
-				.println("\tSessionDestroyed - deduct one session from counter :"
-						+ totalActiveSessions);
-		System.out.println();
+		logger.info("\tSessionDestroyed - deduct one session from counter :"
+				+ totalActiveSessions);
+		logger.info("");
 	}
 
 }

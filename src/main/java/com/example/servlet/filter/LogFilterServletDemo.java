@@ -9,11 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class LogFilterServletDemo
  */
 @WebServlet("/logFilterServlet")
 public class LogFilterServletDemo extends HttpServlet {
+	private static final Logger logger = Logger
+			.getLogger(LogFilterServletDemo.class);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -32,6 +36,6 @@ public class LogFilterServletDemo extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print("<b>welcome to Log Servlet Filter<b>");
-		System.out.println("Servlet Class Executed...!!!");
+		logger.info("Servlet Class Executed...!!!");
 	}
 }

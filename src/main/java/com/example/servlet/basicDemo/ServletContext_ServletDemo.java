@@ -12,17 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class ServletContext
  */
 @WebServlet(urlPatterns = { "/ServletContextServletDemo" })
 public class ServletContext_ServletDemo extends HttpServlet {
+	private static final Logger logger = Logger
+			.getLogger(ServletContext_ServletDemo.class);
 	private static final long serialVersionUID = 1L;
 	private ServletConfig servletConfig;
+
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		servletConfig=config;
-		System.out.println(config.getServletName() + " : is Initilize...");
+		servletConfig = config;
+		logger.info(config.getServletName() + " : is Initilize...");
 	}
 
 	/**
@@ -42,9 +47,9 @@ public class ServletContext_ServletDemo extends HttpServlet {
 			out.print(" => value: <b>" + servletContext.getInitParameter(str)
 					+ "</b>");
 		}
-		System.out.println("ContextPath :: " + servletContext.getContextPath());
-		System.out.println("ServerInfo :: " + servletContext.getServerInfo());
-		System.out.println("ServletContextName :: "
+		logger.info("ContextPath :: " + servletContext.getContextPath());
+		logger.info("ServerInfo :: " + servletContext.getServerInfo());
+		logger.info("ServletContextName :: "
 				+ servletContext.getServletContextName());
 		out.close();
 	}

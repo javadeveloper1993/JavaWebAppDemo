@@ -5,51 +5,54 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.apache.log4j.Logger;
+
 import com.mongodb.MongoClient;
 
 /**
  * @author Maulik
- *
+ * 
  */
 @WebListener
 public class ServletContextListnerDemo implements ServletContextListener {
-
+	private static final Logger logger = Logger
+			.getLogger(ServletContextListnerDemo.class);
 	private MongoClient client;
 
 	public void contextInitialized(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
-		System.out.println("Servlet Context Initilize With Path :"
+		logger.info("Servlet Context Initilize With Path :"
 				+ servletContext.getContextPath());
 		try {
 			client = new MongoClient("localhost", 27017);
 			System.out
 					.println(">>>>>>>>>>>>>>>>>> MongoDb Information >>>>>>>>>>>>>>>");
-			System.out.println("Host Name : " + client.getAddress().getHost());
+			logger.info("Host Name : " + client.getAddress().getHost());
 			servletContext.setAttribute("host", client.getAddress().getHost());
-			System.out.println("port : " + client.getAddress().getPort());
+			logger.info("port : " + client.getAddress().getPort());
 			servletContext.setAttribute("port", client.getAddress().getPort());
-			System.out.println("DatabaseNames : " + client.getDatabaseNames());
+			logger.info("DatabaseNames : " + client.getDatabaseNames());
 			servletContext.setAttribute("DatabaseNames",
 					client.getDatabaseNames());
-			System.out.println("MongoDb Conection Created Sucessfully...!!!");
-			System.out.println();
+			logger.info("MongoDb Conection Created Sucessfully...!!!");
+			logger.info("");
 		} catch (Exception e) {
-			System.out.println("In Exception Mode");
-			System.out.println(e.getMessage());
+			logger.info("In Exception Mode");
+			logger.info(e.getMessage());
 		}
 
 	}
 
 	public void contextDestroyed(ServletContextEvent servletContextEvent) {
 		ServletContext servletContext = servletContextEvent.getServletContext();
-		System.out.println("Servlet Context Destroyed With Path :"
+		logger.info("Servlet Context Destroyed With Path :"
 				+ servletContext.getContextPath());
 		client.close();
-		System.out.println("MongoDb Conection Closed Sucessfully...!!!");
+		logger.info("MongoDb Conection Closed Sucessfully...!!!");
 		servletContext.removeAttribute("host");
 		servletContext.removeAttribute("port");
 		servletContext.removeAttribute("DatabaseNames");
-		System.out.println();
+		logger.info("");
 	}
 
 }

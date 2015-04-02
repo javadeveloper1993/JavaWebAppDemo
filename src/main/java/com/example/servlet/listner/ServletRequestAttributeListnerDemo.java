@@ -4,23 +4,26 @@ import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.ServletRequestAttributeListener;
 import javax.servlet.annotation.WebListener;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Maulik
- *
+ * 
  */
 @WebListener
 public class ServletRequestAttributeListnerDemo implements
 		ServletRequestAttributeListener {
+	private static final Logger logger = Logger
+			.getLogger(ServletRequestAttributeListnerDemo.class);
 
 	public void attributeAdded(
 			ServletRequestAttributeEvent servletRequestAttributeEvent) {
-		System.out
-				.println(">>>>>>>>>>     Servlet Request Attribute Listner Demo  : Add  >>>>>>>>>>>>>>");
-		System.out.println();
-		System.out.println("\tServletRequest attribute added::{"
+		logger.info(">>>>>>>>>>     Servlet Request Attribute Listner Demo  : Add  >>>>>>>>>>>>>>");
+		logger.info("");
+		logger.info("\tServletRequest attribute added::{"
 				+ servletRequestAttributeEvent.getName() + ","
 				+ servletRequestAttributeEvent.getValue() + "}");
-		System.out.println();
+		logger.info("");
 	}
 
 	public void attributeRemoved(
@@ -37,13 +40,12 @@ public class ServletRequestAttributeListnerDemo implements
 
 	public void attributeReplaced(
 			ServletRequestAttributeEvent servletRequestAttributeEvent) {
-		System.out
-				.println(">>>>>>>>>>     Servlet Request Attribute Listner Demo : Replace   >>>>>>>>>>>>>>");
-		System.out.println();
-		System.out.println("\tServletRequest attribute replaced::{"
+		logger.info(">>>>>>>>>>     Servlet Request Attribute Listner Demo : Replace   >>>>>>>>>>>>>>");
+		logger.info("");
+		logger.info("\tServletRequest attribute replaced::{"
 				+ servletRequestAttributeEvent.getName() + ","
 				+ servletRequestAttributeEvent.getValue() + "}");
-		System.out.println();
+		logger.info("");
 	}
 
 }

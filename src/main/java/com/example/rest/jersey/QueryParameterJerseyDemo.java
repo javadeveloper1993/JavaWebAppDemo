@@ -10,12 +10,17 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Maulik
  * 
  */
 @Path("/jerseyQueryParameter")
 public class QueryParameterJerseyDemo {
+
+	private static final Logger logger = Logger
+			.getLogger(QueryParameterJerseyDemo.class);
 
 	@GET
 	@Path("singleQueryParameter")
@@ -38,10 +43,10 @@ public class QueryParameterJerseyDemo {
 	@GET
 	@Path("/dynamicQueryParameter")
 	public Response getUsers(@Context UriInfo info) {
-		System.out.println(info.getPath());
-		System.out.println(info.getAbsolutePath());
-		System.out.println(info.getBaseUri());
-		System.out.println(info.getRequestUri());
+		logger.info(info.getPath());
+		logger.info(info.getAbsolutePath());
+		logger.info(info.getBaseUri());
+		logger.info(info.getRequestUri());
 		String firstName = info.getQueryParameters().getFirst("firstName");
 		String lastName = info.getQueryParameters().getFirst("lastName");
 		List<String> mobileNo = info.getQueryParameters().get("mobileNo");

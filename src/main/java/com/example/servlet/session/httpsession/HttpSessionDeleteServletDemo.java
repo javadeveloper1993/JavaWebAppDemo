@@ -40,7 +40,7 @@ public class HttpSessionDeleteServletDemo extends HttpServlet {
 		session.invalidate();
 		out.print("Session Deleted Sucessfully...!!!");
 		logger.info("Session Id :: " + session.getId());
-		out.print("<br><a href='index.html'>Create Session</a>");
+		out.print("<br><a href='HttpSessionServletDemo.html'>Create Session</a>");
 		out.close();
 	}
 
